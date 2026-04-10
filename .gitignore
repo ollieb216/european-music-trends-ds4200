@@ -6,3 +6,6 @@ data/universal_top_spotify_songs.csv
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
+
+# Claude Code
+CLAUDE.md
