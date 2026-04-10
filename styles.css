@@ -7,7 +7,7 @@
   --text-light: #5a5a5a;
   --white: #ffffff;
   --font-heading: 'DM Sans';
-  --font-body: 'DM Sans';
+  --font-body: 'Work Sans', sans-serif;
 }
 
 
@@ -168,4 +168,5 @@ a {
   font-size: 0.9rem;
   color: var(--text-light);
 }
+
 
