@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Scatterplot - European Music Trends</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/topojson.v3.min.js"></script>
+  <link rel="stylesheet" href="heatmap.css">
+</head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">European Music Trends</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../heatmap/heatmap.html" class="active">Heatmap</a>
+      <a href="../Scatterplot/scatterplot.html">Scatterplot</a>
+      <a href="../map/map.html">Map</a>
+      <a href="../barchart/barchart.html">Bar Chart</a>
+      <a href="../radar/radar.html">Radar</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2>Static Heatmap of the Average Audio Features by Country</h2>
+      <p>
+        placeholder for instructions
+      </p>
+    </section>
+    <div id="vis">
+      
+    </div>
+  </div>
+</body>
+</html>
