@@ -6,6 +6,7 @@
   <title>Scatterplot - European Music Trends</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="scatterplot.css">
   <style>
@@ -26,7 +27,7 @@
 
 <body>
   <header class="navbar">
-    <div class="logo">European Music Trends</div>
+    <div class="logo">DS4200 - European Music Trends</div>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../heatmap/heatmap.html">Heatmap</a>
@@ -69,6 +70,34 @@
         <p><b>Description:</b> The scatterplot represents the relationship between the song valence (x-axis) and song energy (y-axis). Since this is a scatterplot, the graph uses points as marks to represent the data. For channels, the graph mainly uses color to differentiate the countries represented when the "All" radio button is selected. Additionally, the scatterplot uses position as a channel to display the patterns found in the relationship. From selecting any of the radio buttons, it was observed that the positioning of all the countries are very similar, and there is no significant clustering for any of the countries. For all countries, the plots are spread throughout the valence range and mainly from 0.5 = 1 for energy. This suggests that the relationship between valence and energy is weak and songs with higher energy tend to perform better on the music charts. Additionally, since there is little difference between the scatterplots for each country, this suggests that the trends within Europe are very similar.</p>
       </div>
     </div>
+
+    <section class="section">
+      <h2>Explore other visualizations:</h2>
+      <div class="visualization-grid">
+
+        <a href="heatmap/heatmap.html" class="visualization-card">
+          <h3>Average Audio Feature Heatmap</h3>
+        </a>
+
+        <a href="scatterplot/scatterplot.html" class="visualization-card">
+          <h3>Energy vs. Valence Scatterplot</h3>
+        </a>
+
+        <a href="map/map.html" class="visualization-card">
+          <h3>Interactive Map</h3>
+        </a>
+
+        <a href="barchart/barchart.html" class="visualization-card">
+          <h3>Country Comparison Bar Chart</h3>
+        </a>
+
+        <a href="radar/radar.html" class="visualization-card">
+          <h3>Audio Feature Radar Chart</h3>
+          
+        </a>
+
+      </div>
+    </section>
   </div>
 </body>
 </html>
