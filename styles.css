@@ -37,7 +37,7 @@ a {
 
 .navbar {
   background-color: var(--primary);
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,18 +45,18 @@ a {
 
 .navbar .logo {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 20px;
   color: var(--white);
 }
 
 .navbar nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .navbar nav a {
   color: var(--white);
-  font-size: 0.95rem;
+  font-size: 15.2px;
   opacity: 0.85;
   transition: opacity 0.2s;
 }
@@ -71,51 +71,69 @@ a {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 16px;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.column {
+  flex: 1;
+  padding: 4px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .hero {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 64px 32px;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 40px;
+  margin-bottom: 16px;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 17.6px;
   color: var(--text-light);
   max-width: 750px;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 20px;
   text-align: left;
 }
 
 .hero ul {
   max-width: 850px;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 20px;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 17.6px;
   color: #5a5a5a;
 }
 
 .section {
-  margin-bottom: 3rem;
+  margin-bottom: 48px;
 }
 
 .section h2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
+  font-size: 28px;
+  margin-bottom: 16px;
   border-bottom: 3px solid var(--accent);
   display: inline-block;
-  padding-bottom: 0.25rem;
+  padding-bottom: 4px;
 }
 
 .section p {
   color: var(--text-light);
   max-width: 800px;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 
@@ -132,14 +150,14 @@ a {
 .feature-list {
   list-style: none;
   columns: 2;
-  gap: 1rem;
-  margin: 1rem 0 1.5rem;
+  gap: 16px;
+  margin: 16px 0 24px;
   max-width: 800px;
 }
 
 .feature-list li {
-  padding: 0.3rem 0;
-  font-size: 0.95rem;
+  padding: 4.8px 0;
+  font-size: 15.2px;
   color: var(--text-light);
 }
 
@@ -150,14 +168,14 @@ a {
 .visualization-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  gap: 24px;
+  margin-top: 24px;
 }
 
 .visualization-card {
   background: var(--white);
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 24px;
   border: 1px solid #e0e0e0;
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -168,13 +186,15 @@ a {
 }
 
 .visualization-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 19.2px;
+  margin-bottom: 8px;
 }
 
 .visualization-card p {
-  font-size: 0.9rem;
+  font-size: 14.4px;
   color: var(--text-light);
 }
+
+
 
 
