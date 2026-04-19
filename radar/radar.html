@@ -17,10 +17,15 @@
     <nav>
       <a href="../index.html">Home</a>
       <a href="../heatmap/heatmap.html">Heatmap</a>
-      <a href="../scatterplot/scatterplot.html">Scatterplot</a>
-      <a href="../map/map.html">Map</a>
+      <div class="nav-dropdown active">
+        <span>Country Explorer ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="../map/map.html">Map</a>
+          <a href="../radar/radar.html" class="active">Radar</a>
+        </div>
+      </div>
       <a href="../barchart/barchart.html">Bar Chart</a>
-      <a href="../radar/radar.html" class="active">Radar</a>
+      <a href="../scatterplot/scatterplot.html">Scatterplot</a>
     </nav>
   </header>
 
@@ -32,13 +37,11 @@
       </p>
     </section>
 
-    <div class="row">
-      <div class="column">
-        <img src="radar.png" alt="Radar charts of audio feature profiles for 10 European countries" class="radar-image">
-      </div>
-      <div class="column">
-        <p><b>Description:</b> The radar chart displays the normalized average audio feature profiles for each of the 10 European countries in a small multiples layout. Since this is a radar chart, the graph uses filled polygonal shapes as marks to represent the data. For channels, the graph uses position along each axis to encode the normalized value of danceability, energy, speechiness, acousticness, and valence. Values are normalized from 0 to 1, where 1.0 represents the highest scoring country for that feature and 0.0 represents the lowest. From the radar charts, it can be observed that France has a distinctive shape with high danceability and speechiness, while Spain stands out with high acousticness. The Netherlands shows high valence and energy, creating a more balanced shape. Sweden and Poland have smaller, less pronounced shapes overall. These differences in shape across countries illustrate how each country has a unique audio fingerprint in their popular music.</p>
-      </div>
+    <div class="radar-full-width">
+      <img src="radar.png" alt="Radar charts of audio feature profiles for 10 European countries" class="radar-image">
+    </div>
+    <div class="radar-description">
+      <p><b>Description:</b> The radar chart displays the normalized average audio feature profiles for each of the 10 European countries in a small multiples layout. Since this is a radar chart, the graph uses filled polygonal shapes as marks to represent the data. For channels, the graph uses position along each axis to encode the normalized value of danceability, energy, speechiness, acousticness, and valence. Values are normalized from 0 to 1, where 1.0 represents the highest scoring country for that feature and 0.0 represents the lowest. From the radar charts, it can be observed that France has a distinctive shape with high danceability and speechiness, while Spain stands out with high acousticness. The Netherlands shows high valence and energy, creating a more balanced shape. Sweden and Poland have smaller, less pronounced shapes overall. These differences in shape across countries illustrate how each country has a unique audio fingerprint in their popular music.</p>
     </div>
 
     <section class="hero">

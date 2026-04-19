@@ -1,22 +1,26 @@
 @import url('../styles.css');
 
+.radar-full-width {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
 .radar-image {
   max-width: 100%;
+  width: 900px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-.description {
-  padding: 20px;
-  border-radius: 8px;
+.radar-description {
   max-width: 800px;
+  margin: 0 auto 32px;
 }
 
-.description h2 {
-  margin-top: 0;
-}
-
-.description p {
+.radar-description p {
+  font-size: 16px;
+  color: #5a5a5a;
   line-height: 1.6;
+  text-align: left;
 }

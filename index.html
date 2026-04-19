@@ -17,10 +17,15 @@
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="heatmap/heatmap.html">Heatmap</a>
-      <a href="scatterplot/scatterplot.html">Scatterplot</a>
-      <a href="map/map.html">Map</a>
+      <div class="nav-dropdown">
+        <span>Country Explorer ▾</span>
+        <div class="nav-dropdown-menu">
+          <a href="map/map.html">Map</a>
+          <a href="radar/radar.html">Radar</a>
+        </div>
+      </div>
       <a href="barchart/barchart.html">Bar Chart</a>
-      <a href="radar/radar.html">Radar</a>
+      <a href="scatterplot/scatterplot.html">Scatterplot</a>
     </nav>
   </header>
 
@@ -53,8 +58,22 @@
     <section class="section">
       <h2>Introduction to the Data</h2>
       <p>
-        We are obtaining our data from the ‘<a href="https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/data" target="_blank" class="inline-link">Top Spotify Songs in 73 Countries</a>’ dataset found on Kaggle, which tracks daily Spotify Top 50 charts for different countries. The original CSV file has a total of 2,110,316 rows and 25 columns, with each row representing a different song and each column representing a different metadata or audio feature. We plan to clean our data to get rid of unnecessary categories and reduce our scope to ten European countries that are dominant in the music industry: United Kingdom, Germany, France, Spain, Italy, Netherlands, Sweden, Poland, Belgium, and Portugal. The categories that we will use from the database are artists, country, popularity, is_explicit, duration_ms, danceability, energy, key, loudness, mode, speechless, acousticness, instrumentalness, liveness, valence, tempo, and time_signature. While some categories need no elaboration, others may warrant a small explanation here. For instance, the key category has 12 values corresponding to the possible tonic notes, 0-11, and is categorical. Mode is binary and signals if it is in a major key or minor key. Most of the other categories, such as acousticness, instrumentalness, liveness, and valence are measured in values between 0 and 1 as a numerical score. After data cleaning, our data will display the top 500 songs from each country, with the dataframe totalling 5000 rows and 17 columns.
-    
+        Our data comes from the ‘<a href="https://www.kaggle.com/datasets/asaniczka/top-spotify-songs-in-73-countries-daily-updated/data" target="_blank" class="inline-link">Top Spotify Songs in 73 Countries</a>’ dataset on Kaggle, which tracks daily Spotify Top 50 charts across countries worldwide. The original CSV contains <strong>2,110,316 rows</strong> and <strong>25 columns</strong>, where each row represents a song’s daily chart appearance and each column captures metadata or an audio feature from Spotify’s audio analysis API.
+      </p>
+      <p>
+        After cleaning, we narrowed our scope to <strong>10 European countries</strong> (United Kingdom, Germany, France, Spain, Italy, Netherlands, Sweden, Poland, Belgium, and Portugal), taking the top 500 songs per country for a final dataset of <strong>5,000 rows and 17 columns</strong>.
+      </p>
+      <p>
+        The features in our dataset can be grouped into the following categories:
+      </p>
+      <ul class="feature-group-list">
+        <li><strong>Song and Artist Info:</strong> artists (performer names), country (chart country), popularity (0 to 100 score), is_explicit (boolean), duration_s (length in seconds)</li>
+        <li><strong>Mood and Feel:</strong> danceability (0 to 1, how suitable for dancing), energy (0 to 1, intensity and activity), valence (0 to 1, musical positiveness/happiness)</li>
+        <li><strong>Sound Profile:</strong> acousticness (0 to 1, likelihood of acoustic instrumentation), instrumentalness (0 to 1, lack of vocals), speechiness (0 to 1, presence of spoken words), liveness (0 to 1, likelihood of live recording), loudness (dB, overall volume)</li>
+        <li><strong>Musical Structure:</strong> tempo (BPM), key (0 to 11, representing tonic pitch class, e.g. 0 = C, 1 = C#), mode (0 = minor, 1 = major), time_signature (beats per measure)</li>
+      </ul>
+      <p>
+        Throughout this project, features like danceability, energy, valence, acousticness, instrumentalness, speechiness, and liveness are measured on a 0 to 1 scale, where higher values indicate a stronger presence of that quality. Loudness is measured in decibels (dB) and tempo in beats per minute (BPM). These audio features are computed by Spotify’s audio analysis API and reflect the sonic characteristics of each track.
       </p>
     </section>
 
@@ -67,21 +86,20 @@
           <h3>Average Audio Feature Heatmap</h3>
         </a>
 
-        <a href="scatterplot/scatterplot.html" class="visualization-card">
-          <h3>Energy vs. Valence Scatterplot</h3>
-        </a>
-
         <a href="map/map.html" class="visualization-card">
           <h3>Interactive Map</h3>
+        </a>
+
+        <a href="radar/radar.html" class="visualization-card">
+          <h3>Audio Feature Radar Chart</h3>
         </a>
 
         <a href="barchart/barchart.html" class="visualization-card">
           <h3>Country Comparison Bar Chart</h3>
         </a>
 
-        <a href="radar/radar.html" class="visualization-card">
-          <h3>Audio Feature Radar Chart</h3>
-          
+        <a href="scatterplot/scatterplot.html" class="visualization-card">
+          <h3>Energy vs. Valence Scatterplot</h3>
         </a>
 
       </div>
@@ -90,12 +108,11 @@
     <section class="section">
       <h2>General Conclusions</h2>
       <p>
-        <!-- TODO: Add 2-3 key findings tied to the research question once visualizations are complete. -->
-          The visualizations do reveal some patterns in how audio features vary across countries. Both similarities and distinct stylistic differences in music profiles are highlighted here. Looking at the heatmap and radar charts, it is evident that certain countries emphasize specific characteristics. For example, countries like Germany and the Netherlands show relatively high energy and loudness, while others such as Spain and Portugal lean more toward acoustic qualities. This suggests that musical preferences or production styles can differ meaningfully across regions. 
+The visualizations do reveal some patterns in how audio features vary across countries. Both similarities and distinct stylistic differences in music profiles are highlighted here. Looking at the heatmap and radar charts, it is evident that certain countries emphasize specific characteristics. For example, countries like Germany and the Netherlands show relatively high energy and loudness, while others such as Spain and Portugal lean more toward acoustic qualities. This suggests that musical preferences or production styles can differ meaningfully across regions. 
 
           However, when taking a closer look at specific attributes, the scatter plot of energy versus valence does not support this observation well. While it does show a general positive relationship between the two features (songs with higher energy tend to also have higher valence), the wide spread of points indicates that this relationship is not strictly linear, and that countries do not cluster into completely distinct groups. Instead, there is significant overlap. While regional tendencies exist, in this case Europe as a whole seems to have a larger musical trend. 
 
-          Additionally, the bar chart–style comparisons (as reflected in the aggregated feature views) make it clear which features dominate within each country, enabling easy identification of extremes such as high speechiness in some regions, such as Portugal and France, or higher tempo and danceability in others. These comparisons in particular take advantage of bar-based visual encodings for ranking and contrasting categorical data to show trends and differences. 
+          Additionally, the bar chart comparisons (as reflected in the aggregated feature views) make it clear which features dominate within each country, enabling easy identification of extremes such as high speechiness in some regions, such as Portugal and France, or higher tempo and danceability in others. These comparisons in particular take advantage of bar-based visual encodings for ranking and contrasting categorical data to show trends and differences. 
 
           For future work on this dataset, incorporating temporal data would allow for the study of how these audio features evolve over time within each country, adding another dimension to analyze over and seek greater trends.
       </p>

@@ -8,24 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://d3js.org/topojson.v3.min.js"></script>
-  <link rel="stylesheet" href="barchart.css">
-</head>
-  <style>
-    #vis.vega-embed {
-      width: 100%;
-      display: flex;
-    }
-
-    #vis.vega-embed details,
-    #vis.vega-embed details summary {
-      position: relative;
-    }
-  </style>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  <link rel="stylesheet" href="barchart.css">
 </head>
   <body>
     <header class="navbar">
@@ -33,46 +19,156 @@
       <nav>
         <a href="../index.html">Home</a>
         <a href="../heatmap/heatmap.html">Heatmap</a>
-        <a href="../scatterplot/scatterplot.html">Scatterplot</a>
-        <a href="../map/map.html">Map</a>
+        <div class="nav-dropdown">
+          <span>Country Explorer ▾</span>
+          <div class="nav-dropdown-menu">
+            <a href="../map/map.html">Map</a>
+            <a href="../radar/radar.html">Radar</a>
+          </div>
+        </div>
         <a href="../barchart/barchart.html" class="active">Bar Chart</a>
-        <a href="../radar/radar.html">Radar</a>
+        <a href="../scatterplot/scatterplot.html">Scatterplot</a>
       </nav>
     </header>
     <div class="container">
       <section class="section">
         <h2>Country Comparison Bar Chart</h2>
         <p>
-          <b>Instructions:</b> This visualization is interactive. To use it, click on the first set of aggregation radio buttons to select the displayed statistic between mean, median, and mode. The second set of radio buttons select which audio feature you would like to see displayed on the visualization. When hovering over the bars, a tooltip appears with the country the bar represents, the aggregation selected, the numerical value of the bar, and if mode is selected, the count that makes up the mode.
+          <b>Instructions:</b> Use the radio buttons to select which audio feature to display. The bar chart shows the mean value for each country. <strong>Click on any bar</strong> to see the full distribution (histogram) of that feature for the selected country on the right. This brush and link interaction lets you explore the spread of values behind each average.
         </p>
       </section>
-      <div class = "row">
-      <div class = "column">
-        <div id="vis">
-          <script>
-          (function(vegaEmbed) {
-            var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-6e28e2c2e2db75b8b6247a8ad59e2fd0"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "country", "type": "nominal"}, "opacity": {"value": 0.5}, "tooltip": [{"field": "country", "type": "nominal"}, {"field": "aggregation", "type": "nominal"}, {"field": "value", "title": "Value", "type": "quantitative"}, {"field": "mode_count", "title": "Mode Count", "type": "quantitative"}], "x": {"field": "country", "title": "Country", "type": "nominal"}, "y": {"field": "value", "title": "Value", "type": "quantitative"}}, "height": 400, "params": [{"name": "param_3044984c8a2ee372", "select": {"type": "point", "fields": ["feature"]}, "bind": {"input": "radio", "options": ["danceability", "energy", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "duration_s"], "name": "Audio Feature: "}, "value": [{"feature": "danceability"}]}, {"name": "param_02457af48a5dc800", "select": {"type": "point", "fields": ["aggregation"]}, "bind": {"input": "radio", "options": ["mean", "median", "mode"], "name": "Aggregation: "}, "value": [{"aggregation": "mean"}]}], "title": "Country Comparison of Average Audio Features", "transform": [{"filter": {"param": "param_3044984c8a2ee372"}}, {"filter": {"param": "param_02457af48a5dc800"}}], "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-6e28e2c2e2db75b8b6247a8ad59e2fd0": [{"country": "BE", "feature": "acousticness", "mode_count": 19.0, "aggregation": "mean", "value": 0.230072474}, {"country": "BE", "feature": "danceability", "mode_count": 16.0, "aggregation": "mean", "value": 0.7027279999999999}, {"country": "BE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 191.596562}, {"country": "BE", "feature": "energy", "mode_count": 28.0, "aggregation": "mean", "value": 0.653092}, {"country": "BE", "feature": "instrumentalness", "mode_count": 227.0, "aggregation": "mean", "value": 0.01183455668}, {"country": "BE", "feature": "liveness", "mode_count": 29.0, "aggregation": "mean", "value": 0.1448612}, {"country": "BE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mean", "value": 0.1122152}, {"country": "BE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 126.805822}, {"country": "BE", "feature": "valence", "mode_count": 15.0, "aggregation": "mean", "value": 0.5473684}, {"country": "DE", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mean", "value": 0.13790201400000002}, {"country": "DE", "feature": "danceability", "mode_count": 16.0, "aggregation": "mean", "value": 0.6890040000000001}, {"country": "DE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 172.12363}, {"country": "DE", "feature": "energy", "mode_count": 20.0, "aggregation": "mean", "value": 0.725318}, {"country": "DE", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "mean", "value": 0.02043529892}, {"country": "DE", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.1892112}, {"country": "DE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mean", "value": 0.13228}, {"country": "DE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 131.57817}, {"country": "DE", "feature": "valence", "mode_count": 16.0, "aggregation": "mean", "value": 0.529682}, {"country": "ES", "feature": "acousticness", "mode_count": 20.0, "aggregation": "mean", "value": 0.3393152}, {"country": "ES", "feature": "danceability", "mode_count": 21.0, "aggregation": "mean", "value": 0.673168}, {"country": "ES", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 192.650398}, {"country": "ES", "feature": "energy", "mode_count": 20.0, "aggregation": "mean", "value": 0.6407963999999999}, {"country": "ES", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "mean", "value": 0.0792195284}, {"country": "ES", "feature": "liveness", "mode_count": 27.0, "aggregation": "mean", "value": 0.1541958}, {"country": "ES", "feature": "speechiness", "mode_count": 19.0, "aggregation": "mean", "value": 0.10092659999999999}, {"country": "ES", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 114.169828}, {"country": "ES", "feature": "valence", "mode_count": 11.0, "aggregation": "mean", "value": 0.5158442}, {"country": "FR", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mean", "value": 0.2541029}, {"country": "FR", "feature": "danceability", "mode_count": 15.0, "aggregation": "mean", "value": 0.7565120000000001}, {"country": "FR", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 185.842176}, {"country": "FR", "feature": "energy", "mode_count": 25.0, "aggregation": "mean", "value": 0.64277}, {"country": "FR", "feature": "instrumentalness", "mode_count": 212.0, "aggregation": "mean", "value": 0.00552484092}, {"country": "FR", "feature": "liveness", "mode_count": 29.0, "aggregation": "mean", "value": 0.12183100000000001}, {"country": "FR", "feature": "speechiness", "mode_count": 14.0, "aggregation": "mean", "value": 0.15825460000000002}, {"country": "FR", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 123.718228}, {"country": "FR", "feature": "valence", "mode_count": 22.0, "aggregation": "mean", "value": 0.5904579999999999}, {"country": "GB", "feature": "acousticness", "mode_count": 11.0, "aggregation": "mean", "value": 0.2021956274}, {"country": "GB", "feature": "danceability", "mode_count": 17.0, "aggregation": "mean", "value": 0.656066}, {"country": "GB", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 203.39079}, {"country": "GB", "feature": "energy", "mode_count": 17.0, "aggregation": "mean", "value": 0.665534}, {"country": "GB", "feature": "instrumentalness", "mode_count": 286.0, "aggregation": "mean", "value": 0.00392908508}, {"country": "GB", "feature": "liveness", "mode_count": 29.0, "aggregation": "mean", "value": 0.1722606}, {"country": "GB", "feature": "speechiness", "mode_count": 11.0, "aggregation": "mean", "value": 0.0795608}, {"country": "GB", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 121.443078}, {"country": "GB", "feature": "valence", "mode_count": 11.0, "aggregation": "mean", "value": 0.5342332}, {"country": "IT", "feature": "acousticness", "mode_count": 10.0, "aggregation": "mean", "value": 0.23815719999999999}, {"country": "IT", "feature": "danceability", "mode_count": 20.0, "aggregation": "mean", "value": 0.637174}, {"country": "IT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 195.45137599999998}, {"country": "IT", "feature": "energy", "mode_count": 14.0, "aggregation": "mean", "value": 0.661714}, {"country": "IT", "feature": "instrumentalness", "mode_count": 375.0, "aggregation": "mean", "value": 0.0243100069}, {"country": "IT", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.1757104}, {"country": "IT", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mean", "value": 0.0968962}, {"country": "IT", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 127.22903600000001}, {"country": "IT", "feature": "valence", "mode_count": 26.0, "aggregation": "mean", "value": 0.498106}, {"country": "NL", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mean", "value": 0.18191227399999998}, {"country": "NL", "feature": "danceability", "mode_count": 20.0, "aggregation": "mean", "value": 0.687918}, {"country": "NL", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 177.663306}, {"country": "NL", "feature": "energy", "mode_count": 20.0, "aggregation": "mean", "value": 0.705958}, {"country": "NL", "feature": "instrumentalness", "mode_count": 318.0, "aggregation": "mean", "value": 0.00442004894}, {"country": "NL", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.1556532}, {"country": "NL", "feature": "speechiness", "mode_count": 29.0, "aggregation": "mean", "value": 0.072931}, {"country": "NL", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 125.978194}, {"country": "NL", "feature": "valence", "mode_count": 20.0, "aggregation": "mean", "value": 0.607634}, {"country": "PL", "feature": "acousticness", "mode_count": 10.0, "aggregation": "mean", "value": 0.220719414}, {"country": "PL", "feature": "danceability", "mode_count": 12.0, "aggregation": "mean", "value": 0.66503}, {"country": "PL", "feature": "duration_s", "mode_count": 20.0, "aggregation": "mean", "value": 184.45079}, {"country": "PL", "feature": "energy", "mode_count": 16.0, "aggregation": "mean", "value": 0.67391}, {"country": "PL", "feature": "instrumentalness", "mode_count": 313.0, "aggregation": "mean", "value": 0.01038834874}, {"country": "PL", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.1760846}, {"country": "PL", "feature": "speechiness", "mode_count": 18.0, "aggregation": "mean", "value": 0.1231106}, {"country": "PL", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 126.573884}, {"country": "PL", "feature": "valence", "mode_count": 21.0, "aggregation": "mean", "value": 0.49543059999999994}, {"country": "PT", "feature": "acousticness", "mode_count": 20.0, "aggregation": "mean", "value": 0.29049359399999997}, {"country": "PT", "feature": "danceability", "mode_count": 20.0, "aggregation": "mean", "value": 0.6863680000000001}, {"country": "PT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 186.69548600000002}, {"country": "PT", "feature": "energy", "mode_count": 20.0, "aggregation": "mean", "value": 0.6277684}, {"country": "PT", "feature": "instrumentalness", "mode_count": 197.0, "aggregation": "mean", "value": 0.049132234260000004}, {"country": "PT", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.163956}, {"country": "PT", "feature": "speechiness", "mode_count": 10.0, "aggregation": "mean", "value": 0.14445580000000002}, {"country": "PT", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 122.38646}, {"country": "PT", "feature": "valence", "mode_count": 20.0, "aggregation": "mean", "value": 0.520996}, {"country": "SE", "feature": "acousticness", "mode_count": 14.0, "aggregation": "mean", "value": 0.296126952}, {"country": "SE", "feature": "danceability", "mode_count": 15.0, "aggregation": "mean", "value": 0.6108920000000001}, {"country": "SE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mean", "value": 185.84875}, {"country": "SE", "feature": "energy", "mode_count": 20.0, "aggregation": "mean", "value": 0.6462732}, {"country": "SE", "feature": "instrumentalness", "mode_count": 258.0, "aggregation": "mean", "value": 0.01617404978}, {"country": "SE", "feature": "liveness", "mode_count": 20.0, "aggregation": "mean", "value": 0.178095}, {"country": "SE", "feature": "speechiness", "mode_count": 20.0, "aggregation": "mean", "value": 0.0876758}, {"country": "SE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mean", "value": 124.68121000000001}, {"country": "SE", "feature": "valence", "mode_count": 17.0, "aggregation": "mean", "value": 0.5602480000000001}, {"country": "BE", "feature": "acousticness", "mode_count": 19.0, "aggregation": "median", "value": 0.151}, {"country": "BE", "feature": "danceability", "mode_count": 16.0, "aggregation": "median", "value": 0.723}, {"country": "BE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 185.135}, {"country": "BE", "feature": "energy", "mode_count": 28.0, "aggregation": "median", "value": 0.648}, {"country": "BE", "feature": "instrumentalness", "mode_count": 227.0, "aggregation": "median", "value": 2.82e-06}, {"country": "BE", "feature": "liveness", "mode_count": 29.0, "aggregation": "median", "value": 0.12}, {"country": "BE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "median", "value": 0.0603}, {"country": "BE", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 123.049}, {"country": "BE", "feature": "valence", "mode_count": 15.0, "aggregation": "median", "value": 0.566}, {"country": "DE", "feature": "acousticness", "mode_count": 15.0, "aggregation": "median", "value": 0.10250000000000001}, {"country": "DE", "feature": "danceability", "mode_count": 16.0, "aggregation": "median", "value": 0.7}, {"country": "DE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 168.801}, {"country": "DE", "feature": "energy", "mode_count": 20.0, "aggregation": "median", "value": 0.741}, {"country": "DE", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "median", "value": 4.63e-06}, {"country": "DE", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.1395}, {"country": "DE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "median", "value": 0.076}, {"country": "DE", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 128.508}, {"country": "DE", "feature": "valence", "mode_count": 16.0, "aggregation": "median", "value": 0.51}, {"country": "ES", "feature": "acousticness", "mode_count": 20.0, "aggregation": "median", "value": 0.2615}, {"country": "ES", "feature": "danceability", "mode_count": 21.0, "aggregation": "median", "value": 0.724}, {"country": "ES", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 189.456}, {"country": "ES", "feature": "energy", "mode_count": 20.0, "aggregation": "median", "value": 0.668}, {"country": "ES", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "median", "value": 1.11e-05}, {"country": "ES", "feature": "liveness", "mode_count": 27.0, "aggregation": "median", "value": 0.119}, {"country": "ES", "feature": "speechiness", "mode_count": 19.0, "aggregation": "median", "value": 0.073}, {"country": "ES", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 111.994}, {"country": "ES", "feature": "valence", "mode_count": 11.0, "aggregation": "median", "value": 0.584}, {"country": "FR", "feature": "acousticness", "mode_count": 15.0, "aggregation": "median", "value": 0.195}, {"country": "FR", "feature": "danceability", "mode_count": 15.0, "aggregation": "median", "value": 0.786}, {"country": "FR", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 180.923}, {"country": "FR", "feature": "energy", "mode_count": 25.0, "aggregation": "median", "value": 0.646}, {"country": "FR", "feature": "instrumentalness", "mode_count": 212.0, "aggregation": "median", "value": 3.38e-06}, {"country": "FR", "feature": "liveness", "mode_count": 29.0, "aggregation": "median", "value": 0.11}, {"country": "FR", "feature": "speechiness", "mode_count": 14.0, "aggregation": "median", "value": 0.117}, {"country": "FR", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 122.984}, {"country": "FR", "feature": "valence", "mode_count": 22.0, "aggregation": "median", "value": 0.64}, {"country": "GB", "feature": "acousticness", "mode_count": 11.0, "aggregation": "median", "value": 0.11}, {"country": "GB", "feature": "danceability", "mode_count": 17.0, "aggregation": "median", "value": 0.6865000000000001}, {"country": "GB", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 192.2865}, {"country": "GB", "feature": "energy", "mode_count": 17.0, "aggregation": "median", "value": 0.6795}, {"country": "GB", "feature": "instrumentalness", "mode_count": 286.0, "aggregation": "median", "value": 0.0}, {"country": "GB", "feature": "liveness", "mode_count": 29.0, "aggregation": "median", "value": 0.122}, {"country": "GB", "feature": "speechiness", "mode_count": 11.0, "aggregation": "median", "value": 0.048299999999999996}, {"country": "GB", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 117.025}, {"country": "GB", "feature": "valence", "mode_count": 11.0, "aggregation": "median", "value": 0.5505}, {"country": "IT", "feature": "acousticness", "mode_count": 10.0, "aggregation": "median", "value": 0.171}, {"country": "IT", "feature": "danceability", "mode_count": 20.0, "aggregation": "median", "value": 0.635}, {"country": "IT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 190.122}, {"country": "IT", "feature": "energy", "mode_count": 14.0, "aggregation": "median", "value": 0.671}, {"country": "IT", "feature": "instrumentalness", "mode_count": 375.0, "aggregation": "median", "value": 0.0}, {"country": "IT", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.123}, {"country": "IT", "feature": "speechiness", "mode_count": 12.0, "aggregation": "median", "value": 0.0658}, {"country": "IT", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 124.994}, {"country": "IT", "feature": "valence", "mode_count": 26.0, "aggregation": "median", "value": 0.49}, {"country": "NL", "feature": "acousticness", "mode_count": 15.0, "aggregation": "median", "value": 0.109}, {"country": "NL", "feature": "danceability", "mode_count": 20.0, "aggregation": "median", "value": 0.704}, {"country": "NL", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 176.518}, {"country": "NL", "feature": "energy", "mode_count": 20.0, "aggregation": "median", "value": 0.724}, {"country": "NL", "feature": "instrumentalness", "mode_count": 318.0, "aggregation": "median", "value": 0.0}, {"country": "NL", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.121}, {"country": "NL", "feature": "speechiness", "mode_count": 29.0, "aggregation": "median", "value": 0.0478}, {"country": "NL", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 123.968}, {"country": "NL", "feature": "valence", "mode_count": 20.0, "aggregation": "median", "value": 0.625}, {"country": "PL", "feature": "acousticness", "mode_count": 10.0, "aggregation": "median", "value": 0.137}, {"country": "PL", "feature": "danceability", "mode_count": 12.0, "aggregation": "median", "value": 0.689}, {"country": "PL", "feature": "duration_s", "mode_count": 20.0, "aggregation": "median", "value": 181.7375}, {"country": "PL", "feature": "energy", "mode_count": 16.0, "aggregation": "median", "value": 0.685}, {"country": "PL", "feature": "instrumentalness", "mode_count": 313.0, "aggregation": "median", "value": 0.0}, {"country": "PL", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.118}, {"country": "PL", "feature": "speechiness", "mode_count": 18.0, "aggregation": "median", "value": 0.0844}, {"country": "PL", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 127.998}, {"country": "PL", "feature": "valence", "mode_count": 21.0, "aggregation": "median", "value": 0.457}, {"country": "PT", "feature": "acousticness", "mode_count": 20.0, "aggregation": "median", "value": 0.23}, {"country": "PT", "feature": "danceability", "mode_count": 20.0, "aggregation": "median", "value": 0.704}, {"country": "PT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 180.304}, {"country": "PT", "feature": "energy", "mode_count": 20.0, "aggregation": "median", "value": 0.648}, {"country": "PT", "feature": "instrumentalness", "mode_count": 197.0, "aggregation": "median", "value": 6.59e-06}, {"country": "PT", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.117}, {"country": "PT", "feature": "speechiness", "mode_count": 10.0, "aggregation": "median", "value": 0.113}, {"country": "PT", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 128.528}, {"country": "PT", "feature": "valence", "mode_count": 20.0, "aggregation": "median", "value": 0.527}, {"country": "SE", "feature": "acousticness", "mode_count": 14.0, "aggregation": "median", "value": 0.17}, {"country": "SE", "feature": "danceability", "mode_count": 15.0, "aggregation": "median", "value": 0.626}, {"country": "SE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "median", "value": 184.577}, {"country": "SE", "feature": "energy", "mode_count": 20.0, "aggregation": "median", "value": 0.691}, {"country": "SE", "feature": "instrumentalness", "mode_count": 258.0, "aggregation": "median", "value": 0.0}, {"country": "SE", "feature": "liveness", "mode_count": 20.0, "aggregation": "median", "value": 0.123}, {"country": "SE", "feature": "speechiness", "mode_count": 20.0, "aggregation": "median", "value": 0.055}, {"country": "SE", "feature": "tempo", "mode_count": 10.0, "aggregation": "median", "value": 120.007}, {"country": "SE", "feature": "valence", "mode_count": 17.0, "aggregation": "median", "value": 0.579}, {"country": "BE", "feature": "acousticness", "mode_count": 19.0, "aggregation": "mode", "value": 0.151}, {"country": "BE", "feature": "danceability", "mode_count": 16.0, "aggregation": "mode", "value": 0.779}, {"country": "BE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 137.173}, {"country": "BE", "feature": "energy", "mode_count": 28.0, "aggregation": "mode", "value": 0.694}, {"country": "BE", "feature": "instrumentalness", "mode_count": 227.0, "aggregation": "mode", "value": 0.0}, {"country": "BE", "feature": "liveness", "mode_count": 29.0, "aggregation": "mode", "value": 0.126}, {"country": "BE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mode", "value": 0.0301}, {"country": "BE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 92.855}, {"country": "BE", "feature": "valence", "mode_count": 15.0, "aggregation": "mode", "value": 0.562}, {"country": "DE", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mode", "value": 0.23}, {"country": "DE", "feature": "danceability", "mode_count": 16.0, "aggregation": "mode", "value": 0.773}, {"country": "DE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 110.902}, {"country": "DE", "feature": "energy", "mode_count": 20.0, "aggregation": "mode", "value": 0.843}, {"country": "DE", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "mode", "value": 0.0}, {"country": "DE", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.104}, {"country": "DE", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mode", "value": 0.241}, {"country": "DE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 92.855}, {"country": "DE", "feature": "valence", "mode_count": 16.0, "aggregation": "mode", "value": 0.213}, {"country": "ES", "feature": "acousticness", "mode_count": 20.0, "aggregation": "mode", "value": 0.163}, {"country": "ES", "feature": "danceability", "mode_count": 21.0, "aggregation": "mode", "value": 0.756}, {"country": "ES", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 130.968}, {"country": "ES", "feature": "energy", "mode_count": 20.0, "aggregation": "mode", "value": 0.648}, {"country": "ES", "feature": "instrumentalness", "mode_count": 206.0, "aggregation": "mode", "value": 0.0}, {"country": "ES", "feature": "liveness", "mode_count": 27.0, "aggregation": "mode", "value": 0.101}, {"country": "ES", "feature": "speechiness", "mode_count": 19.0, "aggregation": "mode", "value": 0.128}, {"country": "ES", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 63.662}, {"country": "ES", "feature": "valence", "mode_count": 11.0, "aggregation": "mode", "value": 0.584}, {"country": "FR", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mode", "value": 0.177}, {"country": "FR", "feature": "danceability", "mode_count": 15.0, "aggregation": "mode", "value": 0.877}, {"country": "FR", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 129.056}, {"country": "FR", "feature": "energy", "mode_count": 25.0, "aggregation": "mode", "value": 0.694}, {"country": "FR", "feature": "instrumentalness", "mode_count": 212.0, "aggregation": "mode", "value": 0.0}, {"country": "FR", "feature": "liveness", "mode_count": 29.0, "aggregation": "mode", "value": 0.109}, {"country": "FR", "feature": "speechiness", "mode_count": 14.0, "aggregation": "mode", "value": 0.101}, {"country": "FR", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 86.116}, {"country": "FR", "feature": "valence", "mode_count": 22.0, "aggregation": "mode", "value": 0.649}, {"country": "GB", "feature": "acousticness", "mode_count": 11.0, "aggregation": "mode", "value": 0.399}, {"country": "GB", "feature": "danceability", "mode_count": 17.0, "aggregation": "mode", "value": 0.707}, {"country": "GB", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 157.279}, {"country": "GB", "feature": "energy", "mode_count": 17.0, "aggregation": "mode", "value": 0.727}, {"country": "GB", "feature": "instrumentalness", "mode_count": 286.0, "aggregation": "mode", "value": 0.0}, {"country": "GB", "feature": "liveness", "mode_count": 29.0, "aggregation": "mode", "value": 0.104}, {"country": "GB", "feature": "speechiness", "mode_count": 11.0, "aggregation": "mode", "value": 0.125}, {"country": "GB", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 94.938}, {"country": "GB", "feature": "valence", "mode_count": 11.0, "aggregation": "mode", "value": 0.372}, {"country": "IT", "feature": "acousticness", "mode_count": 10.0, "aggregation": "mode", "value": 0.00454}, {"country": "IT", "feature": "danceability", "mode_count": 20.0, "aggregation": "mode", "value": 0.595}, {"country": "IT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 140.16}, {"country": "IT", "feature": "energy", "mode_count": 14.0, "aggregation": "mode", "value": 0.665}, {"country": "IT", "feature": "instrumentalness", "mode_count": 375.0, "aggregation": "mode", "value": 0.0}, {"country": "IT", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.204}, {"country": "IT", "feature": "speechiness", "mode_count": 12.0, "aggregation": "mode", "value": 0.112}, {"country": "IT", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 88.001}, {"country": "IT", "feature": "valence", "mode_count": 26.0, "aggregation": "mode", "value": 0.49}, {"country": "NL", "feature": "acousticness", "mode_count": 15.0, "aggregation": "mode", "value": 0.116}, {"country": "NL", "feature": "danceability", "mode_count": 20.0, "aggregation": "mode", "value": 0.704}, {"country": "NL", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 135.325}, {"country": "NL", "feature": "energy", "mode_count": 20.0, "aggregation": "mode", "value": 0.731}, {"country": "NL", "feature": "instrumentalness", "mode_count": 318.0, "aggregation": "mode", "value": 0.0}, {"country": "NL", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.122}, {"country": "NL", "feature": "speechiness", "mode_count": 29.0, "aggregation": "mode", "value": 0.0301}, {"country": "NL", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 92.855}, {"country": "NL", "feature": "valence", "mode_count": 20.0, "aggregation": "mode", "value": 0.235}, {"country": "PL", "feature": "acousticness", "mode_count": 10.0, "aggregation": "mode", "value": 9.37e-05}, {"country": "PL", "feature": "danceability", "mode_count": 12.0, "aggregation": "mode", "value": 0.616}, {"country": "PL", "feature": "duration_s", "mode_count": 20.0, "aggregation": "mode", "value": 144.0}, {"country": "PL", "feature": "energy", "mode_count": 16.0, "aggregation": "mode", "value": 0.667}, {"country": "PL", "feature": "instrumentalness", "mode_count": 313.0, "aggregation": "mode", "value": 0.0}, {"country": "PL", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.12}, {"country": "PL", "feature": "speechiness", "mode_count": 18.0, "aggregation": "mode", "value": 0.0306}, {"country": "PL", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 76.089}, {"country": "PL", "feature": "valence", "mode_count": 21.0, "aggregation": "mode", "value": 0.438}, {"country": "PT", "feature": "acousticness", "mode_count": 20.0, "aggregation": "mode", "value": 0.11}, {"country": "PT", "feature": "danceability", "mode_count": 20.0, "aggregation": "mode", "value": 0.568}, {"country": "PT", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 103.727}, {"country": "PT", "feature": "energy", "mode_count": 20.0, "aggregation": "mode", "value": 0.543}, {"country": "PT", "feature": "instrumentalness", "mode_count": 197.0, "aggregation": "mode", "value": 0.0}, {"country": "PT", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.101}, {"country": "PT", "feature": "speechiness", "mode_count": 10.0, "aggregation": "mode", "value": 0.0275}, {"country": "PT", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 65.301}, {"country": "PT", "feature": "valence", "mode_count": 20.0, "aggregation": "mode", "value": 0.219}, {"country": "SE", "feature": "acousticness", "mode_count": 14.0, "aggregation": "mode", "value": 0.704}, {"country": "SE", "feature": "danceability", "mode_count": 15.0, "aggregation": "mode", "value": 0.607}, {"country": "SE", "feature": "duration_s", "mode_count": 10.0, "aggregation": "mode", "value": 109.8}, {"country": "SE", "feature": "energy", "mode_count": 20.0, "aggregation": "mode", "value": 0.676}, {"country": "SE", "feature": "instrumentalness", "mode_count": 258.0, "aggregation": "mode", "value": 0.0}, {"country": "SE", "feature": "liveness", "mode_count": 20.0, "aggregation": "mode", "value": 0.0929}, {"country": "SE", "feature": "speechiness", "mode_count": 20.0, "aggregation": "mode", "value": 0.0384}, {"country": "SE", "feature": "tempo", "mode_count": 10.0, "aggregation": "mode", "value": 66.685}, {"country": "SE", "feature": "valence", "mode_count": 17.0, "aggregation": "mode", "value": 0.62}]}};
-            var embedOpt = {"mode": "vega-lite"};
-
-            function showError(el, error){
-                el.innerHTML = ('<div style="color:red;">'
-                                + '<p>JavaScript Error: ' + error.message + '</p>'
-                                + "<p>This usually means there's a typo in your chart specification. "
-                                + "See the javascript console for the full traceback.</p>"
-                                + '</div>');
-                throw error;
-            }
-            const el = document.getElementById('vis');
-            vegaEmbed("#vis", spec, embedOpt)
-              .catch(error => showError(el, error));
-          })(vegaEmbed);
-          </script>
+      <div class="row">
+        <div class="column" style="flex: 1.2;">
+          <div id="bar-chart"></div>
+        </div>
+        <div class="column">
+          <div id="hist-chart">
+            <p style="text-align:center; color:#888; padding-top:80px;">Click a bar to see the distribution</p>
+          </div>
         </div>
       </div>
-      <div class = "column">
-        <p><b>Description:</b> This barchart displays various average audio features for each of the 10 European countries, with each country represented by a colored bar consistent with the colors already attributed them in the scatterplot, and values on the y-axis. The barchart uses bars as marks to represent the data. For channels, the graph uses the length/size of the bar to encode an average value of each feature, where a longer bar indicates a higher value. In this way, the data is easily compared. An interesting part of the visualization is that when viewing mode for any given audio feature, it is very likely that the reason a particular value is the mode is because one song was very popular in the country over multiple days.</p> 
+      <div class="row">
+        <div class="column">
+          <p><b>Description:</b> The bar chart displays the mean value of a selected audio feature for each of the 10 European countries, with countries on the x-axis and values on the y-axis. Since this is a bar chart, the graph uses bars as marks to represent the data. For channels, the graph uses the length of each bar to encode the mean value of the selected feature, where a taller bar indicates a higher average. The bars are colored in a consistent blue, with the selected country highlighted in coral to indicate an active selection. The radio buttons allow switching between nine audio features: danceability, energy, speechiness, acousticness, instrumentalness, liveness, valence, tempo, and duration. Clicking on any bar triggers a brush and link interaction, revealing a histogram on the right that shows the full distribution of the selected feature for that country. This linked view enables multi-factor analysis by letting the user examine the spread and shape of the underlying data behind each average. For example, two countries may have similar mean danceability, but their distributions may differ in spread or skewness, revealing deeper differences in listening patterns.</p>
+        </div>
       </div>
-    </div>
+
+      <script>
+      (function() {
+        var rawData = null;
+        var currentFeature = "danceability";
+        var selectedCountry = null;
+        var barView = null;
+
+        var countryNames = {
+          "BE": "Belgium", "DE": "Germany", "ES": "Spain", "FR": "France",
+          "GB": "United Kingdom", "IT": "Italy", "NL": "Netherlands",
+          "PL": "Poland", "PT": "Portugal", "SE": "Sweden"
+        };
+
+        // Bar chart spec
+        var barSpec = {
+          "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json",
+          "data": {"url": "../data/fully_cleaned_top_spotify_songs_EU.csv"},
+          "transform": [
+            {"fold": ["danceability", "energy", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "duration_s"], "as": ["__feature", "__value"]},
+            {"filter": "datum.__feature === featureParam"}
+          ],
+          "params": [
+            {
+              "name": "featureParam",
+              "value": "danceability",
+              "bind": {"input": "radio", "options": ["danceability", "energy", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo", "duration_s"], "name": "Audio Feature: "}
+            },
+            {
+              "name": "countrySelect",
+              "select": {"type": "point", "fields": ["country"]}
+            }
+          ],
+          "mark": {"type": "bar", "cursor": "pointer"},
+          "encoding": {
+            "x": {
+              "field": "country", "type": "nominal", "title": "Country",
+              "sort": ["BE", "DE", "ES", "FR", "GB", "IT", "NL", "PL", "PT", "SE"]
+            },
+            "y": {
+              "aggregate": "mean", "field": "__value", "type": "quantitative", "title": "Mean Value"
+            },
+            "color": {
+              "condition": {"param": "countrySelect", "value": "#e07a5f"},
+              "value": "#1b4965"
+            },
+            "tooltip": [
+              {"field": "country", "type": "nominal", "title": "Country"},
+              {"aggregate": "mean", "field": "__value", "type": "quantitative", "title": "Mean", "format": ".4f"}
+            ]
+          },
+          "title": "Mean Audio Feature by Country",
+          "width": 500,
+          "height": 400
+        };
+
+        // Embed bar chart and listen for selection changes
+        vegaEmbed("#bar-chart", barSpec, {"mode": "vega-lite"}).then(function(result) {
+          barView = result.view;
+
+          // Store raw data once loaded
+          barView.addEventListener('dataflow', function() {
+            if (!rawData) {
+              try {
+                rawData = barView.data('data_0') || barView.data('source_0');
+              } catch(e) {}
+            }
+          });
+
+          // Listen for selection changes
+          barView.addSignalListener('countrySelect', function(name, value) {
+            if (value && value.country && value.country.length > 0) {
+              selectedCountry = value.country[0];
+              updateHistogram();
+            }
+          });
+
+          barView.addSignalListener('featureParam', function(name, value) {
+            currentFeature = value;
+            if (selectedCountry) updateHistogram();
+          });
+        });
+
+        function updateHistogram() {
+          var histSpec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json",
+            "data": {"url": "../data/fully_cleaned_top_spotify_songs_EU.csv"},
+            "transform": [
+              {"filter": "datum.country === '" + selectedCountry + "'"}
+            ],
+            "mark": {"type": "bar"},
+            "encoding": {
+              "x": {
+                "bin": {"maxbins": 20},
+                "field": currentFeature,
+                "type": "quantitative",
+                "title": currentFeature.charAt(0).toUpperCase() + currentFeature.slice(1)
+              },
+              "y": {
+                "aggregate": "count",
+                "type": "quantitative",
+                "title": "Count"
+              },
+              "color": {"value": "#e07a5f"},
+              "tooltip": [
+                {"bin": {"maxbins": 20}, "field": currentFeature, "type": "quantitative", "title": "Value"},
+                {"aggregate": "count", "type": "quantitative", "title": "Count"}
+              ]
+            },
+            "title": (countryNames[selectedCountry] || selectedCountry) + " - " + currentFeature + " distribution",
+            "width": 500,
+            "height": 400
+          };
+          vegaEmbed("#hist-chart", histSpec, {"mode": "vega-lite"});
+        }
+      })();
+      </script>
 
       <section class="hero">
         <div class ="container">
@@ -88,4 +184,3 @@
     </div>
   </body>
 </html>
-
