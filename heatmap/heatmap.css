@@ -176,6 +176,39 @@ button:hover {
   cursor: pointer;
 }
 
+.visualization-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.visualization-card {
+  flex: 1;
+  min-width: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.visualization-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.visualization-card h3 {
+  font-size: 19.2px;
+  margin-bottom: 8px;
+}
+
+.visualization-card p {
+  font-size: 14.4px;
+  color: #5a5a5a;
+}
+
 #vis.vega-embed {
   width: 100%;
   display: flex;

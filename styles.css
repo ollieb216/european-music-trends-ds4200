@@ -235,14 +235,14 @@ a {
 
 .visualization-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
   margin-top: 24px;
 }
 
 .visualization-card {
-  width: 300px;
+  flex: 1;
+  min-width: 0;
   background: #ffffff;
   border-radius: 10px;
   padding: 24px;
